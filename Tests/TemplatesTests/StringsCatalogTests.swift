@@ -63,7 +63,8 @@ final class StringsCatalogTests: XCTestCase {
     test(
       template: "flat-swift5",
       contextNames: Contexts.all,
-      directory: .stringsCatalog,
+      directory: .strings,
+      resourceDirectory: .stringsCatalog,
       contextVariations: variations
     )
   }
@@ -72,7 +73,8 @@ final class StringsCatalogTests: XCTestCase {
     test(
       template: "structured-swift5",
       contextNames: Contexts.all,
-      directory: .stringsCatalog,
+      directory: .strings,
+      resourceDirectory: .stringsCatalog,
       contextVariations: variations
     )
   }

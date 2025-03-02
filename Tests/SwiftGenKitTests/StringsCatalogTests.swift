@@ -14,12 +14,12 @@ class StringsCatalogTests: XCTestCase {
     let parser = try Strings.Parser()
 
     let result = parser.stencilContext()
-    XCTDiffContexts(result, expected: "empty", sub: .stringsCatalog)
+    XCTDiffContexts(result, expected: "empty", sub: .strings)
   }
 
   func testLocalizable() throws {
     let parser = try Strings.Parser()
-    try parser.searchAndParse(path: Fixtures.resource(for: "Localizable.xcstrings", sub: .stringsCatalog))
+    try parser.searchAndParse(path: Fixtures.resource(for: "Localizable.xcstrings", sub: .strings))
 
     let result = parser.stencilContext()
     XCTDiffContexts(result, expected: "localizable", sub: .stringsCatalog)
@@ -27,7 +27,7 @@ class StringsCatalogTests: XCTestCase {
 
   func testMultiline() throws {
     let parser = try Strings.Parser()
-    try parser.searchAndParse(path: Fixtures.resource(for: "LocMultiline.xcstrings", sub: .stringsCatalog))
+    try parser.searchAndParse(path: Fixtures.resource(for: "LocMultiline.xcstrings", sub: .strings))
 
     let result = parser.stencilContext()
     XCTDiffContexts(result, expected: "multiline", sub: .stringsCatalog)
@@ -35,7 +35,7 @@ class StringsCatalogTests: XCTestCase {
 
   func testUTF8File() throws {
     let parser = try Strings.Parser()
-    try parser.searchAndParse(path: Fixtures.resource(for: "LocUTF8.xcstrings", sub: .stringsCatalog))
+    try parser.searchAndParse(path: Fixtures.resource(for: "LocUTF8.xcstrings", sub: .strings))
 
     let result = parser.stencilContext()
     XCTDiffContexts(result, expected: "utf8", sub: .stringsCatalog)
@@ -43,7 +43,7 @@ class StringsCatalogTests: XCTestCase {
 
   func testStructuredOnly() throws {
     let parser = try Strings.Parser()
-    try parser.searchAndParse(path: Fixtures.resource(for: "LocStructuredOnly.xcstrings", sub: .stringsCatalog))
+    try parser.searchAndParse(path: Fixtures.resource(for: "LocStructuredOnly.xcstrings", sub: .strings))
 
     let result = parser.stencilContext()
     XCTDiffContexts(result, expected: "structuredonly", sub: .stringsCatalog)
@@ -51,8 +51,8 @@ class StringsCatalogTests: XCTestCase {
 
   func testMultipleFiles() throws {
     let parser = try Strings.Parser()
-    try parser.searchAndParse(path: Fixtures.resource(for: "Localizable.xcstrings", sub: .stringsCatalog))
-    try parser.searchAndParse(path: Fixtures.resource(for: "LocMultiline.xcstrings", sub: .stringsCatalog))
+    try parser.searchAndParse(path: Fixtures.resource(for: "Localizable.xcstrings", sub: .strings))
+    try parser.searchAndParse(path: Fixtures.resource(for: "LocMultiline.xcstrings", sub: .strings))
 
     let result = parser.stencilContext()
     XCTDiffContexts(result, expected: "multiple", sub: .stringsCatalog)
@@ -60,7 +60,7 @@ class StringsCatalogTests: XCTestCase {
 
   func testPlurals() throws {
     let parser = try Strings.Parser()
-    try parser.searchAndParse(path: Fixtures.resource(for: "LocalizableDict.xcstrings", sub: .stringsCatalog))
+    try parser.searchAndParse(path: Fixtures.resource(for: "LocalizableDict.xcstrings", sub: .strings))
 
     let result = parser.stencilContext()
     XCTDiffContexts(result, expected: "plurals", sub: .stringsCatalog)
@@ -68,7 +68,7 @@ class StringsCatalogTests: XCTestCase {
 
   func testAdvancedPlurals() throws {
     let parser = try Strings.Parser()
-    try parser.searchAndParse(path: Fixtures.resource(for: "LocPluralAdvanced.xcstrings", sub: .stringsCatalog))
+    try parser.searchAndParse(path: Fixtures.resource(for: "LocPluralAdvanced.xcstrings", sub: .strings))
 
     let result = parser.stencilContext()
     XCTDiffContexts(result, expected: "plurals-advanced", sub: .stringsCatalog)
